@@ -1,20 +1,33 @@
 const fs = require('fs');
 const _ = require('lodash');
+const yargs = require('yargs');
 
 const notes =  require('./notes.js');
 
-// process.argv - List of all arguments given when running the application. (example: node app.js list)
-let command = process.argv[2];
-console.log(process.argv);
+// process.argv || yargs.argv - List of all arguments given when running the application. (example: node app.js list)
+const argv = yargs.argv;
+let command = argv._[0] || process.argv[2];
+console.log(argv);
 
+// Commands
 if (command === 'add') {
-    console.log('Adding new note');
+
+    notes.addNote(argv.title, argv.body);
+
 } else if (command === 'list') {
-    console.log('Listing all notes');
+
+    notes.getAll();
+
 } else if (command === 'read') {
-    console.log('Reading one note');
+
+    notes.getNote(argv.title);
+
 } else if (command === 'remove') {
-    console.log('Removing note');
+
+    notes.removeNote(argv.title);
+
 } else {
+
     console.log('Command not recognized');
+
 }
