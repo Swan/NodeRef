@@ -12,8 +12,12 @@ let command = argv._[0] || process.argv[2];
 if (command === 'add') {
 
     let note = notes.addNote(argv.title, argv.body);
-    (note) ? console.log(`----New Note Created----\nTitle: \t${note.title} \nBody: \t${note.body}`) : console.log("Error: Duplicate Note Title");
-     
+    if (note) {
+        console.log("Note added.");
+        notes.logNote(note)
+    } else {
+        console.log("Duplicate Note Title.");
+    }
 
 } else if (command === 'list') {
 
@@ -21,16 +25,29 @@ if (command === 'add') {
 
 } else if (command === 'read') {
 
-    notes.getNote(argv.title);
+    let note = notes.getNote(argv.title);
+
+    if (note) {
+        console.log("Note Found")
+        notes.logNote(note);
+    } else {
+        console.log("Note not Found");
+    }
 
 } else if (command === 'remove') {
 
     let noteRemoved = notes.removeNote(argv.title);
-    let message = (noteRemoved) ? `Note: ${argv.title} was removed.` : "Error: Invalid note";
-    console.log(message);
+
+    if (noteRemoved) {
+        console.log("Note Removed Successfully");
+        notes.logNote(noteRemoved);
+    } else {
+        console.log("Not not found.");
+    }
 
 } else {
 
     console.log('Command not recognized');
 
 }
+
