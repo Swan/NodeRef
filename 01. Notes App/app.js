@@ -25,7 +25,9 @@ if (command === 'add') {
 
 } else if (command === 'remove') {
 
-    notes.removeNote(argv.title);
+    let noteRemoved = notes.removeNote(argv.title);
+    let message = (noteRemoved) ? `Note: ${argv.title} was removed.` : "Error: Invalid note";
+    console.log(message);
 
 } else {
 
