@@ -5,7 +5,29 @@ const yargs = require('yargs');
 const notes =  require('./notes.js');
 
 // process.argv || yargs.argv - List of all arguments given when running the application. (example: node app.js list)
-const argv = yargs.argv;
+const titleOptions = {
+    describe: 'Title of note',
+    demand: true, 
+    alias: 't'    
+}
+
+const bodyOptions = {
+    body: {
+        describe: 'Body of note',
+        demand: true,
+        alias: 'b'
+    }   
+}
+const argv = yargs
+    .command('add', 'Add a new note', {
+        title: titleOptions,
+        body: bodyOptions
+    })
+    .command('list', 'List all of the notes')
+    .command('read', 'Read individual note', { title: titleOptions })
+    .command('remove', 'Remove a note', { title: titleOptions })
+    .help()
+    .argv;
 let command = argv._[0] || process.argv[2];
 
 // Commands
