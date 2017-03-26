@@ -7,12 +7,13 @@ const notes =  require('./notes.js');
 // process.argv || yargs.argv - List of all arguments given when running the application. (example: node app.js list)
 const argv = yargs.argv;
 let command = argv._[0] || process.argv[2];
-console.log(argv);
 
 // Commands
 if (command === 'add') {
 
-    notes.addNote(argv.title, argv.body);
+    let note = notes.addNote(argv.title, argv.body);
+    (note) ? console.log(`----New Note Created----\nTitle: \t${note.title} \nBody: \t${note.body}`) : console.log("Error: Duplicate Note Title");
+     
 
 } else if (command === 'list') {
 
