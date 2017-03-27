@@ -6,7 +6,7 @@ let getWeather = (lat, lng, callback) => {
     let apiKey = ''; 
 
     request({
-        url: `https://api.darksky.net/forecast/${apiKey}/42.3624504,-71.2577233`,
+        url: `https://api.darksky.net/forecast/${apiKey}/${lat},${lng}`,
         json: true
     }, (error, response, body) => {
 
