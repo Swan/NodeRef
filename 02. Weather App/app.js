@@ -1,5 +1,6 @@
 const yargs = require('yargs');
 const geocode = require('./geocode/geocode.js');
+const request = require('request');
 
 const argv = yargs
     .options({
@@ -23,3 +24,15 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
     }
 });
 
+// API key can be found by going to Forecast.io
+let apiKey = ''; 
+request({
+    url: `https://api.darksky.net/forecast/${apiKey}/42.3624504,-71.2577233`,
+    json: true
+}, (error, response, body) => {
+    if (!error && response.statusCode === 200) {
+        console.log(body.currently.temperature);
+    } else {
+        conosle.log('Unable to fetch weather.');
+    }
+});
