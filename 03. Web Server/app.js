@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', (req, res) => {
     // res.send('<h1>Hello, Express!</h1>');
     res.json({
@@ -19,7 +21,7 @@ app.get('/about', (req, res) => {
 app.get('/bad', (req, res) => {
     res.status(500).json({
         status: 500,
-        error: 'Unable to complete request.'
+        error: 'Unable to complete request.'   
     });
 });
 
