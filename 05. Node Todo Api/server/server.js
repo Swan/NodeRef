@@ -1,62 +1,34 @@
 'use strict';
 
-const mongoose = require('mongoose');
+const express = require('express');
+const bodyParser = require('body-parser');
 
-// Let mongoose use ES6 promise library
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/TodoApp');
+const mongoose = require('./db/mongoose');
+const Todo = require('./models/todo');
+const User = require('./models/user');
 
-let Todo = mongoose.model('Todo', {
-    text: {
-        type: String,
-        required: true,
-        minlength: 1,
-        trim: true
+const app = express();
 
-    },
-    completed: {
-        type: Boolean,
-        default: false
-    },
-    completedAt: {
-        type: Number,
-        default: null
-    }
-});
+app.use(bodyParser.json());
 
-let newTodo = new Todo({
-    text: '  Edit this video.   '
-});
-
-newTodo.save()
-    .then((doc) => {
-        console.log('Saved Todo', doc);
-    })
-    .catch((e) => {
-        console.log('Unable to save Todo', e);
+app.post('/todos', (req, res) => {
+    let todo = new Todo({
+        text: req.body.text
     });
 
-
-
-// User Challenge
-let User = mongoose.model('User', {
-    email: {
-        type: String,
-        required: true,
-        minlength: 3,
-        trim: true,
-    }
-})
-
-
-let newUser = new User({
-    email: 'the@swan.moe'
+    todo.save()
+        .then((newTodo) => {
+            res.send(newTodo);
+        })
+        .catch((err) => {
+            res.status(400).send(err);
+        });
 });
 
-newUser.save()
-    .then((user) => {
-        console.log('New user created',  user);
-    })
-    .catch((err) => {
-        console.log('Unable to create new user:', err);
-    })
+app.listen(3000, () => {
+    console.log('Server started on port: 3000');
+});
+
+
+
+
