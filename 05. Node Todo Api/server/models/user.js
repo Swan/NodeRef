@@ -1,16 +1,12 @@
-'use strict';
+var mongoose = require('mongoose');
 
-const mongoose = require('mongoose');
+var User = mongoose.model('User', {
+  email: {
+    type: String,
+    required: true,
+    trim: true,
+    minlength: 1
+  }
+});
 
-// User Challenge
-let User = mongoose.model('User', {
-    email: {
-        type: String,
-        required: true,
-        minlength: 3,
-        trim: true,
-    }
-})
-
-
-module.exports = {User};
+module.exports = {User}
