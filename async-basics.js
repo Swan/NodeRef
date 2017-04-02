@@ -2,7 +2,7 @@
  * The point of this file is to provide an understanding on how asynchronous programming in JavaScript works. 
  * In short, a function is called, and ONLY AFTER it's done executing it'll run a callback function.
  * This allows the process to be non-blocking.
- * For more information, look up the difference between blocking & non-blocking.
+ * For more information, look up the difference between blocking & non-blocking, as well as the Node.js event loop
  * 
  * Resources: 
  *  http://electronics.stackexchange.com/questions/91688/difference-between-blocking-and-nonblocking-assignment-verilog
