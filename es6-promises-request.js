@@ -1,3 +1,9 @@
+/*
+ * Learn More about ES6 Promises Here:
+ *  Resource: http://www.datchley.name/es6-promises/
+ */
+
+
 const request = require('request');
 
 let geocodeAddress = (address) => {
