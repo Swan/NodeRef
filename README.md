@@ -22,5 +22,8 @@ There are many things that the code samples in this repository can teach you, su
 
 However, as said before, this is generally to be used as a reference. If you are completely new to Node, I'd suggest looking more in depth to each of the individual modules and features to get a better understanding of these examples.
 
+# CONTRIBUTING
+If you want to contribute to this repository, you're free to make a pull request, whether you're adding, correcting, or changing something.
+
 # LICENSE
 [MIT](https://github.com/Swan/nodejscourse/blob/master/LICENSE)
