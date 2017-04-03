@@ -1,3 +1,8 @@
+/*
+ * Read more about Jsonwebtoken here:
+ *  Resource: https://www.npmjs.com/package/jsonwebtoken
+ */
+
 const jwt = require('jsonwebtoken');
 
 let data = {
