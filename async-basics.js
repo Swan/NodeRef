@@ -9,7 +9,7 @@
  *  http://softwareengineering.stackexchange.com/questions/202047/what-determines-which-javascript-functions-are-blocking-vs-non-blocking
  */
 
-console.log('Startng App');
+console.log('Starting App');
 
 // This function gets fired off, and waits for 2 seconds before executing
 setTimeout(() => {
@@ -17,7 +17,7 @@ setTimeout(() => {
 }, 2000);
 
 // This function gets fired off, but executes AFTER console.log('Finishing App'), even though the setTimeout is 0 seconds. 
-// This has to do with the callback getting sent to the Callback Queue, where it waits for the Call Stack to be empty.
+// This has to do with the callback getting sent to the Callback Queue, where it waits for the Call Stack to be empty before executing
 setTimeout(() => {
     console.log("Lol");
 }, 0);
