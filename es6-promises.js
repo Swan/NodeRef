@@ -1,3 +1,8 @@
+/*
+ * Learn More about ES6 Promises Here:
+ *  Resource: http://www.datchley.name/es6-promises/
+ */
+
 let asyncAdd = (a, b) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
