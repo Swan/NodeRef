@@ -1,4 +1,4 @@
-# nodejscourse
+# NodeRef
 This repository contains most of the fundamentals of using Node.js on the server-side. Many of the problems and code samples were created from Andrew Mead's Complete Node.js Developer Course 2 on [Udemy](https://www.udemy.com/the-complete-nodejs-developer-course-2). I recommend this course if you're looking for more in depth explanations about each of the parts of this repository, however I've tried to comment it the best I can.
 
 # Includes
